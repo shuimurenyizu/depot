@@ -8,8 +8,8 @@
 #---
 require 'bundler/capistrano'
 # be sure to change these
-set :user, 'rubys'
-set :domain, 'localhost.com'
+set :user, 'dugubai'
+set :domain, '192.168.2.6'
 set :application, 'depot'
 
 # adjust if you are using RVM, remove if you are not
@@ -18,8 +18,9 @@ set :rvm_ruby_string, '1.9.3'
 set :rvm_type, :user
 
 # file paths
-set :repository,  "#{user}@#{domain}:git/#{application}.git" 
-set :deploy_to, "/home/#{user}/#{domain}" 
+# set :repository,  "#{user}@#{domain}:git/#{application}.git" 
+set :repository, "git@github.com:shuimurenyizu/depot.git" 
+set :deploy_to, "/opt/code/#{application}"
 
 # distribute your applications across servers (the instructions below put them
 # all on the same server, defined above as 'domain', adjust as necessary)
@@ -28,7 +29,7 @@ role :web, domain
 role :db, domain, :primary => true
 
 # you might need to set this if you aren't seeing password prompts
-default_run_options[:pty] = true
+# default_run_options[:pty] = true
 
 # As Capistrano executes in a non-interactive mode and therefore doesn't cause
 # any of your shell profile scripts to be run, the following might be needed

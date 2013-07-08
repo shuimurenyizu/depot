@@ -24,7 +24,6 @@ production:
   reconnect: false
   database: depot_production
   pool: 5
-  timeout: 3000
   username: username
   password: password
   host: localhost
